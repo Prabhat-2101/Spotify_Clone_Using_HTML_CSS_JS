@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/spotify_favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media_query.css">
+</head>
+<body>
+    <div class="main">
+        <div class="sidebar" id="left-pane">
+            <div class="nav">
+                <div class="nav-options">
+                    <i class="fa-solid fa-house"></i> <a href="#">Home</a>
+                </div>
+                <div class="nav-options">
+                    <i class="fa-solid fa-magnifying-glass"></i> <a href="#">Search</a>
+                </div>
+            </div>
+            <div class="library">
+                <div class="lib-options">
+                    <i class="fa-solid fa-list"></i>
+                    <a href="">Your Library</a>
+                    <div class="icons" >
+                        <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="lib-div"><h4>Create your first playlist</h4>
+                <p>It's easy, we'll help you</p>
+                <button>Create playlist</button></div>
+                <div class="lib-div"><h4>Let's find some podcasts to follow</h4>
+                <p>We'll keep you updated on new episodes</p>
+                <button>Browse podcasts</button></div>
+                <div class="lib-div"><h4>Explore Trendings</h4>
+                <p>We'll help you to explore ongoing trends</p>
+                <button>Check Trendings</button></div>
+            </div>
+        </div>
+        <div class="resizer" id="resizer"></div>
+        <div class="main-content" id="right-pane">
+            <div class="head-options">
+                <h3>Welcome</h3>
+                <div class="others">
+                    <button>Explore Premium <i class="fa-regular fa-money-bill-1"></i></button>
+                    <button>Install App <i class="fa-solid fa-download"></i></button>
+                    <div class="notification-popup" id="notificationPopup">
+                        <div class="notification-header">
+                          <span>Notifications</span>
+                          <span class="close-btn" id="closeBtn">&times;</span>
+                        </div>
+                        <div class="notification-content">
+                            <ul>
+                                <li class="notification-item">Subscription Expiring <div class="icons"><i class="fas fa-external-link-alt"></i><i class="fas fa-cancel"></i></div></li>
+                                <li class="notification-item">Activate MFA <div class="icons">
+                                    <i class="fas fa-external-link-alt"></i><i class="fas fa-cancel"></i>
+                                </div></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="profile-panel" id="profilePanel">
+                        <div class="profile-header">
+                          <span>My Profile</span>
+                          <span class="cancel-btn" id="cancelBtn">&times;</span>
+                        </div>
+                        <div class="profile-content">
+                            <img src="images/arijitsingh.jpeg" alt="">
+                            <p class="profile-item">Arijit Singh</p>
+                        <a href="#" class="profile-item">Subscribed Plan <i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="profile-item">Multiple Device: <i class="fas fa-xmark"></i></a>
+                        <a href="#" class="profile-item">Upgrade to Premium <i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="profile-item">Settings</a>
+                        <a href="#" class="profile-item">Log out</a>
+                        </div>|
+                    </div>
+                    <div class="icons">
+                        <i class="fa-solid fa-bell" id="noticeIcon"></i>
+                        <i class="fa-solid fa-user" id="profileIcon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-options">
+                <button class="light-button" onclick="toggleButtonMode(this)" id="buttonAll">All</button>
+                <button class="dark-button" onclick="toggleButtonMode(this)" id="buttonMusic">Music</button>
+                <button class="dark-button" onclick="toggleButtonMode(this)" id="buttonPodcast">Podcast</button>
+            </div>
+            <div class='music-options'>
+                <div class="row all" id="all1">
+                    <h3>Try something else</h3>
+                    <div class="box-list">
+                        <div class="box">
+                            <img src="./images/hothits.jpeg" alt="">
+                            <div class="desc">Hot Hits - Hindi</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/hothitspunjav.jpeg" alt="">
+                            <div class="desc">Hot Hits - Punjabi</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/hothitsbhojpuri.jpeg" alt="">
+                            <div class="desc">Hot Hits - Bhojpuri</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/allout.jpeg" alt="">
+                            <div class="desc">All Out 00's Hindi</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/arijitsingh.jpeg" alt="">
+                            <div class="desc">This is Arijit Singh</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/bollywoodcentral.jpeg" alt="">
+                            <div class="desc">Bollywood Central</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row all" id="all2">
+                    <h3>Featured Charts</h3>
+                    <div class="box-list">
+                        <div class="box">
+                            <img src="./images/top50global.jpg" alt="">
+                            <div class="desc">Top 50 - Global</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/top50india.jpg" alt="">
+                            <div class="desc">Top 50 - India</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/topweeklyglobal.jpg" alt="">
+                            <div class="desc">Top Weekly - Global</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/topweeklyindia.jpg" alt="">
+                            <div class="desc">Top Weekly - India</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/viral50global.jpg" alt="">
+                            <div class="desc">Viral 50 - Global</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/viral50india.jpg" alt="">
+                            <div class="desc">Viral 50 - India</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden" id="music">
+                    <h3>Top Music of this decade</h3>
+                    <div class="box-list">
+                        <div class="box">
+                            <img src="./images/Music/dhadhak.jpg" alt="">
+                            <div class="desc">Dhadhak</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/dil.jpeg" alt="">
+                            <div class="desc">Dil</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/downtown.jpeg" alt="">
+                            <div class="desc">Downtown</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/hamariadhurikahani.jpg" alt="">
+                            <div class="desc">Hamari Adhuri Kahani</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/highratedgabru.jpg" alt="">
+                            <div class="desc">High Rated Gabru</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/ima.png" alt="">
+                            <div class="desc">IMA</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/lagan.jpeg" alt="">
+                            <div class="desc">Lagaan</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/lahore.jpeg" alt="">
+                            <div class="desc">Lahore</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/madeinindia.jpeg" alt="">
+                            <div class="desc">Made In India</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/raabta.jpg" alt="">
+                            <div class="desc">Raabta</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/vandematram.jpeg" alt="">
+                            <div class="desc">Vande Matram</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/vemahi.jpg" alt="">
+                            <div class="desc">Ve Mahi</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/ramaiyavastavaiya.jpg" alt="">
+                            <div class="desc">Ramaiya Vastavaiya</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/ghunghat.jpeg" alt="">
+                            <div class="desc">Ghunghat</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/bheegibheegi.jpeg" alt="">
+                            <div class="desc">Bheegi Bheegi</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/bewafai.jpg" alt="">
+                            <div class="desc">Bewafaai</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/barish.jpg" alt="">
+                            <div class="desc">Baarish</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/aajbhi.jpg" alt="">
+                            <div class="desc">Aaj Bhi</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Music/redeys.jpeg" alt="">
+                            <div class="desc">Red Eyes</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden" id="podcast">
+                    <h3>Recently Recorded Popular Podcasts</h3>
+                    <div class="box-list">
+                        <div class="box">
+                            <img src="./images/Podcast/ajayatul.jpeg" alt="">
+                            <div class="desc">Ajay & Atul</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Podcast/ankitaastha.jpeg" alt="">
+                            <div class="desc">Ankita & Aastha</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Podcast/ashraf.jpeg" alt="">
+                            <div class="desc">Zain Ashraf</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Podcast/bansipatel.jpeg" alt="">
+                            <div class="desc">Bansi Patel</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Podcast/kshitijanand.jpeg" alt="">
+                            <div class="desc">kshitij Anand</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Podcast/maethomas.jpg" alt="">
+                            <div class="desc">Mae Thomas</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Podcast/nisha.jpeg" alt="">
+                            <div class="desc">Nisha</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Podcast/pialidasgupta.jpeg" alt="">
+                            <div class="desc">Piali Das Gupta</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Podcast/ranveer.jpeg" alt="">
+                            <div class="desc">Ranveer Alahbadia</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Podcast/richajain.jpeg" alt="">
+                            <div class="desc">Richa Jain</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Podcast/sangeetapilai.jpg" alt="">
+                            <div class="desc">Sangeeta Pilai</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Podcast/seedout.jpeg" alt="">
+                            <div class="desc">Zain Ashraf</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Podcast/sujathamohan.jpeg" alt="">
+                            <div class="desc">Sujatha Mohan</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="box">
+                            <img src="./images/Podcast/yogi.jpeg" alt="">
+                            <div class="desc">Yogi</div>
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h3>About Us</h3>
+                    <div class="box-list">
+                        <div class="box"><h5>Company</h5>
+                        <ul><li>About</li>
+                        <li>Jobs</li>
+                        <li>For the record</li></ul></div>
+                        <div class="box"><h5>Communities</h5>
+                        <ul><li>For Artists</li>
+                        <li>Developers</li>
+                        <li>Advertising</li>
+                        <li>Investors</li>
+                        <li>Vendors</li></ul></div>
+                        <div class="box"><h5>Useful Links</h5>
+                        <ul><li>Support</li>
+                        <li>Free Mobile App</li></ul></div>
+                        <div class="box"><h5>Spotify Plans</h5>
+                        <ul><li>Premium Individual</li>
+                        <li>Premium Duo</li>
+                        <li>Premimum Family</li>
+                        <li>Premimum Student</li>
+                        <li>Spotify Free</li></ul></div>
+                        <div class="box"><h5>Privacy Policy</h5>
+                        <ul><li>Legal</li>
+                        <li>Cookies</li>
+                        <li>Accessibility</li>
+                        <li>Safety Center</li>
+                        <li>About Ads</li></ul></div>
+                    </div>
+                </div>
+            </div>
+            <hr style="margin-left: 15%;width: 70%;margin-right: 15%;">
+            <div class="social-media">
+                <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.twitter.com" target="_blank" class="social-icon">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com" target="_blank" class="social-icon">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+            <br><br><br>
+        </div>
+        <div class="music-player">
+            <div class="album">
+                <div class="music-name">Made in India</div>
+                <div class="singer-name">Singer: Guru Randhawa</div>
+                <div class="release-date">Release Date: June 2018</div>
+            </div>            
+            <div class="player">
+                <div class="controls">
+                    <i class="fa-solid fa-shuffle"></i>
+                    <i class="fa-solid fa-backward"></i>
+                    <i class="fa-solid fa-play" id="play"></i>
+                    <i class="fa-solid fa-forward"></i>
+                    <i class="fa-solid fa-repeat"></i>
+                </div>
+                <div class="progress">
+                    <div class="time">00:00</div>
+                    <input type="range" name="musicprogress" id="musicprogress">
+                    <div class="time">04:00</div>
+                </div>
+            </div>
+            <div class="another-control">
+                <i class="fa-solid fa-layer-group"></i>
+                <i class="fa-solid fa-link"></i>
+                <i class="fa-solid fa-volume-xmark" onclick="toggleVolume()"></i>
+                <i class="fa-solid fa-volume-high" onclick="toggleVolume()" style="display: none;"></i>
+                <input type="range" name="volume" id="volume" value="50">
+                <i class="fa-solid fa-up-right-and-down-left-from-center" onclick="showMusicPlayer()" id="maxi"></i>
+                <i class="fa-solid fa-down-left-and-up-right-to-center" onclick="hideMusicPlayer()" id="mini" style="display: none;"></i>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
